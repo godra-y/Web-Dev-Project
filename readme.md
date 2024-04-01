@@ -52,3 +52,8 @@ This is a web application for managing personal finances. The application allows
   - `GET /api/budgets/{id}/`: Retrieve a specific budget.
   - `PUT /api/budgets/{id}/`: Update a specific budget.
   - `DELETE /api/budgets/{id}/`: Delete a specific budget.
+
+## Relationships
+
+- **User - Transaction**: One-to-Many relationship where one user can have multiple transactions.
+- **Transaction - Category**: Many-to-Many relationship where a transaction can belong to multiple categories, and a category can have multiple transactions.
