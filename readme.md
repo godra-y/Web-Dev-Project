@@ -3,7 +3,8 @@
 ## Team members
 
 Muratova Alnura 22B030399,
-Assylbekova Ayazhan 22В030310,
+Assylbekova Ayazhan 22В030310, 
+Bagdatova Ingkar 22В030521
 
 ## Project description
 
