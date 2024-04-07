@@ -1,1 +1,26 @@
-<p>category works!</p>
+<div>
+  <h2>Categories</h2>
+  <div>
+    <button (click)="filterCategories('income')">Income</button>
+    <button (click)="filterCategories('expense')">Expense</button>
+  </div>
+
+  <ul>
+    <li *ngFor="let category of typeItems">
+      <span *ngIf="category.type === selectedType">{{ category.name }}</span>
+      <button (click)="deleteCategory(category.id)">Delete</button>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h2>Create New Category</h2>
+  <label>Name:</label>
+  <input type="text" [(ngModel)]="newCategoryName">
+  <label>Type:</label>
+  <select [(ngModel)]="newCategoryType">
+    <option value="expense">Expense</option>
+    <option value="income">Income</option>
+  </select>
+  <button (click)="createCategory()">Create</button>
+</div>

@@ -1,0 +1,79 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Health",
+      "type": "expense"
+    },
+    {
+      "id": "2",
+      "name": "Leisure",
+      "type": "expense"
+    },
+    {
+      "id": "3",
+      "name": "Home",
+      "type": "expense"
+    },
+    {
+      "id": "4",
+      "name": "Cafe",
+      "type": "expense"
+    },
+    {
+      "id": "5",
+      "name": "Education",
+      "type": "expense"
+    },
+    {
+      "id": "6",
+      "name": "Gifts",
+      "type": "expense"
+    },
+    {
+      "id": "7",
+      "name": "Groceries",
+      "type": "expense"
+    },
+    {
+      "id": "8",
+      "name": "Family",
+      "type": "expense"
+    },
+    {
+      "id": "9",
+      "name": "Sports",
+      "type": "expense"
+    },
+    {
+      "id": "10",
+      "name": "Transport",
+      "type": "expense"
+    },
+    {
+      "id": "11",
+      "name": "Other",
+      "type": "expense"
+    },
+    {
+      "id": "12",
+      "name": "Salary",
+      "type": "income"
+    },
+    {
+      "id": "13",
+      "name": "Gift",
+      "type": "income"
+    },
+    {
+      "id": "14",
+      "name": "Deposit interest",
+      "type": "income"
+    },
+    {
+      "id": "15",
+      "name": "Other",
+      "type": "income"
+    }
+  ]
+}
