@@ -1,26 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from "@angular/common";
-import { RouterLink } from "@angular/router";
+import { RouterModule } from "@angular/router";
 import { Category } from "../models";
 import { CategoryService } from "../category.service";
 import { FormsModule } from "@angular/forms";
+import { TransactionComponent } from "../transaction/transaction.component";
+import {TransactionService} from "../transaction.service";
 
 @Component({
   selector: 'app-category',
   standalone: true,
   imports: [
-    RouterLink,
+    RouterModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    TransactionComponent
   ],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css'
 })
 export class CategoryComponent implements OnInit{
   categories: Category[] = [];
-  typeItems: Category[] = [];
-  newCategoryName: string = '';
-  newCategoryType: 'income' | 'expense' = 'expense';
+  newCategory: Category = {} as Category
+  incomeCategories: Category [] = []
+  expenseCategories: Category [] = []
   selectedType: 'income' | 'expense' = 'expense';
 
   constructor(private categoryService: CategoryService) {}
@@ -36,28 +39,31 @@ export class CategoryComponent implements OnInit{
   }
 
   createCategory(): void {
-    const newCategory: Category = {
-      id: 0,
-      name: this.newCategoryName,
-      type: this.newCategoryType
-    };
-    this.categoryService.createCategory(newCategory).subscribe(category => {
+    this.categoryService.createCategory(this.newCategory).subscribe(category => {
       this.categories.push(category);
-      this.newCategoryName = '';
-      this.filterCategories(this.selectedType);
+      this.newCategory = {} as Category;
+      this.filterCategoriesByType();
     });
   }
 
   deleteCategory(id: number) {
-    this.categoryService.deleteCategory(id).subscribe((response : Category) => {
-      this.categories = this.categories.filter(a => a.id != id);
-      this.filterCategories(this.selectedType);
+    this.categoryService.deleteCategory(id).subscribe(() => {
+      this.categories = this.categories.filter(category => category.id != id);
+      this.filterCategoriesByType();
     })
   }
 
-  filterCategories(type: 'income' | 'expense') {
-    this.selectedType = type;
-    this.typeItems = this.categories.filter(category => category.type === type);
+  filterCategoriesByType(): void {
+    this.incomeCategories = this.categories.filter(categories => categories.type === 'income');
+    this.expenseCategories = this.categories.filter(categories => categories.type === 'expense');
+  }
+
+  filterCategoryBySelectedType(): void {
+    if (this.selectedType === 'income') {
+      this.filterCategoriesByType();
+    }
+    else {
+      this.filterCategoriesByType();
+    }
   }
 }
-

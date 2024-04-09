@@ -1,26 +1,52 @@
 <div>
   <h2>Categories</h2>
+
   <div>
-    <button (click)="filterCategories('income')">Income</button>
-    <button (click)="filterCategories('expense')">Expense</button>
+    <button (click)="selectedType = 'income'; filterCategoryBySelectedType()">Income</button>
+    <button (click)="selectedType = 'expense'; filterCategoryBySelectedType()">Expense</button>
   </div>
 
-  <ul>
-    <li *ngFor="let category of typeItems">
-      <span *ngIf="category.type === selectedType">{{ category.name }}</span>
+  <div *ngIf="selectedType === 'income'">
+    <div *ngFor="let category of incomeCategories">
+      <a routerLink="/categories/{{category.id}}">
+        {{category.name}}
+      </a>
       <button (click)="deleteCategory(category.id)">Delete</button>
-    </li>
-  </ul>
+    </div>
+  </div>
+
+  <div *ngIf="selectedType === 'expense'">
+    <div *ngFor="let category of expenseCategories">
+      <a routerLink="/categories/{{category.id}}">
+        {{category.name}}
+      </a>
+      <button (click)="deleteCategory(category.id)">Delete</button>
+    </div>
+  </div>
 </div>
 
 <div>
   <h2>Create New Category</h2>
+
   <label>Name:</label>
-  <input type="text" [(ngModel)]="newCategoryName">
+  <input type="text" [(ngModel)]="newCategory.name">
   <label>Type:</label>
-  <select [(ngModel)]="newCategoryType">
+  <select [(ngModel)]="newCategory.type">
     <option value="expense">Expense</option>
     <option value="income">Income</option>
   </select>
   <button (click)="createCategory()">Create</button>
+
 </div>
+
+<hr>
+
+<div *ngFor="let category of categories">
+  <div>
+    <a routerLink="/categories/{{category.id}}">
+      {{category.name}}
+    </a>
+    <button (click)="deleteCategory(category.id)">Delete</button>
+  </div>
+</div>
+

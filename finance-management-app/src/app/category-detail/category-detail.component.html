@@ -1,1 +1,24 @@
-<p>category-detail works!</p>
+<h1>Category detail</h1>
+<h2>{{category.name}}</h2>
+
+<div class="page-func">
+
+  <fieldset>
+    <input [(ngModel)]="updatedCategory" type="text"/>
+    <button (click)="updateTitle()" class="save-btn">Save</button>
+  </fieldset>
+</div>
+
+
+<div class="transactions-list">
+  <h3>Transactions for {{ category.name }}</h3>
+  <ul>
+    <li *ngFor="let transaction of transactions">
+      <p>Amount: {{ transaction.amount }}</p>
+      <p>Date: {{ transaction.date }}</p>
+      <hr>
+    </li>
+  </ul>
+</div>
+
+

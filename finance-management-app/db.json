@@ -75,5 +75,11 @@
       "name": "Other",
       "type": "income"
     }
-  ]
+  ],
+
+  "transactions": [],
+
+  "users": [],
+
+  "budgets": []
 }

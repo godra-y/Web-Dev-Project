@@ -10,7 +10,7 @@ export const routes: Routes = [
   {path: 'transactions', component: TransactionComponent, title: 'Transactions'},
   {path: 'categories', component: CategoryComponent, title: 'Categories'},
   {path: 'budget', component: BudgetComponent, title: 'Budget'},
-  {path: 'category/:id', component: CategoryDetailComponent, title: 'Category detail'},
+  {path: 'categories/:id', component: CategoryDetailComponent, title: 'Category detail'},
   {path: '**', component: NotFoundComponent, title: '404 Not Found'}
 ];
 

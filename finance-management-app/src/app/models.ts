@@ -3,9 +3,11 @@ export interface Category {
   name: string;
   type: 'income' | 'expense';
 }
+
 export interface Transaction {
   id: number;
   category: string;
   amount: number;
   date: string;
+  type: 'income' | 'expense';
 }
