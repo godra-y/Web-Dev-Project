@@ -3,83 +3,95 @@
     {
       "id": "1",
       "name": "Health",
-      "type": "expense"
+      "type": "expense",
+      "img": "https://cdn-icons-png.flaticon.com/512/7856/7856858.png"
     },
     {
       "id": "2",
       "name": "Leisure",
-      "type": "expense"
+      "type": "expense",
+      "img": "https://cdn-icons-png.flaticon.com/512/2706/2706132.png"
     },
     {
       "id": "3",
       "name": "Home",
-      "type": "expense"
+      "type": "expense",
+      "img": "https://cdn-icons-png.freepik.com/512/6800/6800345.png"
     },
     {
       "id": "4",
       "name": "Cafe",
-      "type": "expense"
+      "type": "expense",
+      "img": "https://cdn-icons-png.freepik.com/512/6791/6791100.png"
     },
     {
       "id": "5",
       "name": "Education",
-      "type": "expense"
+      "type": "expense",
+      "img": "https://cdn-icons-png.flaticon.com/512/4927/4927667.png"
     },
     {
       "id": "6",
       "name": "Gifts",
-      "type": "expense"
+      "type": "expense",
+      "img": "https://cdn-icons-png.freepik.com/512/1115/1115653.png"
     },
     {
       "id": "7",
       "name": "Groceries",
-      "type": "expense"
+      "type": "expense",
+      "img": "https://cdn-icons-png.freepik.com/256/10783/10783595.png"
     },
     {
       "id": "8",
       "name": "Family",
-      "type": "expense"
+      "type": "expense",
+      "img": "https://cdn-icons-png.flaticon.com/256/6700/6700279.png"
     },
     {
       "id": "9",
       "name": "Sports",
-      "type": "expense"
+      "type": "expense",
+      "img": "https://cdn-icons-png.flaticon.com/512/3503/3503343.png"
     },
     {
       "id": "10",
       "name": "Transport",
-      "type": "expense"
+      "type": "expense",
+      "img": "https://cdn-icons-png.freepik.com/256/8184/8184795.png"
     },
     {
       "id": "11",
       "name": "Other",
-      "type": "expense"
+      "type": "expense",
+      "img": "https://cdn-icons-png.freepik.com/512/7782/7782781.png"
     },
     {
       "id": "12",
       "name": "Salary",
-      "type": "income"
+      "type": "income",
+      "img": "https://cdn-icons-png.freepik.com/512/2974/2974891.png"
     },
     {
       "id": "13",
       "name": "Gift",
-      "type": "income"
+      "type": "income",
+      "img": "https://cdn-icons-png.freepik.com/512/1115/1115653.png"
     },
     {
       "id": "14",
       "name": "Deposit interest",
-      "type": "income"
+      "type": "income",
+      "img": "https://cdn-icons-png.freepik.com/512/8146/8146536.png"
     },
     {
       "id": "15",
       "name": "Other",
-      "type": "income"
+      "type": "income",
+      "img": "https://cdn-icons-png.freepik.com/512/7782/7782781.png"
     }
   ],
-
   "transactions": [],
-
   "users": [],
-
   "budgets": []
 }

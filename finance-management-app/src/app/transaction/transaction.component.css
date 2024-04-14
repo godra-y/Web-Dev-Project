@@ -1,0 +1,82 @@
+.transactions {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.transaction-form {
+  margin-bottom: 20px;
+}
+
+form label {
+  margin-right: 10px;
+  margin-left: 50px;
+}
+
+form input, form select {
+  margin-bottom: 20px;
+  padding: 7px;
+  width: 120px;
+}
+
+form button[type="submit"] {
+  margin-left: 25px;
+  padding: 10px 15px;
+  cursor: pointer;
+  background-color: #0d235d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+form button[type="submit"]:hover {
+  background-color: #213570;
+}
+
+.transaction-button button{
+  margin-bottom: 20px;
+  cursor: pointer;
+  margin-right: 25px;
+  padding: 10px 20px;
+  height: 70px;
+  width: 450px;
+  border-radius: 6px;
+  border: none;
+  background-color: #e7e7e7;
+  font-size: 20px;
+}
+
+.transaction-button button:hover {
+  background-color: #0d235d;
+  color: white;
+}
+
+.transaction-container {
+  margin-bottom: 20px;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+  /*border: 1px solid #ccc;*/
+  border-radius: 5px;
+  height: 50px;
+  background-color: rgba(238, 238, 238, 0.94);
+  border: none;
+}
+
+.transaction-item p {
+  margin: 0;
+}
+
+.transaction-item button {
+  border: none;
+  background-color: rgba(238, 238, 238, 0.94);
+  cursor: pointer;
+}
+
+.transaction-item button img:hover {
+  width: 25px;
+}

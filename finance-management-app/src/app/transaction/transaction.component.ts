@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 import { Category, Transaction } from "../models";
 import { TransactionService } from "../transaction.service";
 import { FormsModule } from "@angular/forms";
+import {TopBarComponent} from "../top-bar/top-bar.component";
 
 @Component({
   selector: 'app-transaction',
@@ -11,7 +12,8 @@ import { FormsModule } from "@angular/forms";
   imports: [
     RouterModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    TopBarComponent
   ],
   templateUrl: './transaction.component.html',
   styleUrl: './transaction.component.css'
@@ -26,7 +28,7 @@ export class TransactionComponent implements OnInit {
   filteredCategories: Category[] = [];
   incomeTransactions: Transaction[] = [];
   expenseTransactions: Transaction[] = [];
-  selectedType: 'income' | 'expense' = 'expense';
+  selectedType: 'income' | 'expense' | 'all' = 'expense';
   constructor(private transactionService: TransactionService) {}
 
   ngOnInit(): void {
@@ -80,5 +82,10 @@ export class TransactionComponent implements OnInit {
     else {
       this.filterTransactionsByType();
     }
+  }
+
+  showAllTransactions(): void {
+    this.selectedType = 'all'; // Обновляем выбранный тип на 'all'
+    this.getTransactions(); // Загружаем все транзакции
   }
 }

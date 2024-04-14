@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Category, Transaction } from "./models";
+import { Category } from "./models";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({
@@ -22,15 +22,14 @@ export class CategoryService {
     return this.http.post<Category>(`${this.URL}/categories`, category);
   }
 
-  updateCategory(id: number, updatedCategory: string): Observable<Category> {
-    return this.http.put<Category>(`${this.URL}/categories/${id}`, {name: updatedCategory});
-  }
+  // updateCategory(id: number, updatedCategory: string): Observable<Category> {
+  //   return this.http.put<Category>(`${this.URL}/categories/${id}`, updatedCategory);
+  // }
 
+  updateCategory(id: number, updatedCategory: string): Observable<Category> {
+    return this.http.put<Category>(`${this.URL}/categories/${id}`, { name: updatedCategory });
+  }
   deleteCategory(id: number): Observable<Category> {
     return this.http.delete<Category>(`${this.URL}/categories/${id}`);
-  }
-
-  getTransactionsForCategory(categoryId: number): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(`${this.URL}/categories/${categoryId}/transactions`);
   }
 }

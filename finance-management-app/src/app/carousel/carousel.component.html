@@ -1,0 +1,6 @@
+<div class="carousel">
+  <div *ngFor="let item of items" class="carousel-item" [ngStyle]="{'transform': 'translateX(' + (currentIndex * -100) + '%)'}">
+    <img [src]="item" style="display: block; width: 100%;">
+
+  </div>
+</div>

@@ -4,8 +4,7 @@ import { RouterModule } from "@angular/router";
 import { Category } from "../models";
 import { CategoryService } from "../category.service";
 import { FormsModule } from "@angular/forms";
-import { TransactionComponent } from "../transaction/transaction.component";
-import {TransactionService} from "../transaction.service";
+import {TopBarComponent} from "../top-bar/top-bar.component";
 
 @Component({
   selector: 'app-category',
@@ -14,7 +13,7 @@ import {TransactionService} from "../transaction.service";
     RouterModule,
     FormsModule,
     CommonModule,
-    TransactionComponent
+    TopBarComponent,
   ],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css'
@@ -24,7 +23,9 @@ export class CategoryComponent implements OnInit{
   newCategory: Category = {} as Category
   incomeCategories: Category [] = []
   expenseCategories: Category [] = []
-  selectedType: 'income' | 'expense' = 'expense';
+  selectedType: 'income' | 'expense' | 'all' = 'expense';
+
+  defaultImage = 'https://cdn-icons-png.freepik.com/512/9748/9748127.png'
 
   constructor(private categoryService: CategoryService) {}
 
@@ -33,9 +34,9 @@ export class CategoryComponent implements OnInit{
   }
 
   getCategories(): void {
-    this.categoryService.getCategories().subscribe(categories =>
+    this.categoryService.getCategories().subscribe(categories => {
       this.categories = categories
-    );
+    });
   }
 
   createCategory(): void {
@@ -65,5 +66,10 @@ export class CategoryComponent implements OnInit{
     else {
       this.filterCategoriesByType();
     }
+  }
+
+  showAllCategories(): void {
+    this.selectedType = 'all';
+    this.getCategories();
   }
 }

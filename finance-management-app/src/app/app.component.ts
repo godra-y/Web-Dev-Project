@@ -1,14 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { TransactionComponent } from "./transaction/transaction.component";
-import { CategoryComponent } from "./category/category.component";
-import { BudgetComponent } from "./budget/budget.component";
-import { CommonModule} from "@angular/common";
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, RouterLink, RouterLinkActive, TransactionComponent, CategoryComponent, BudgetComponent],
+  imports: [ RouterModule, RouterOutlet, RouterOutlet ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

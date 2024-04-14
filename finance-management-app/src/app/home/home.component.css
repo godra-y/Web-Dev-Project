@@ -1,0 +1,139 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+.home-page {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f3f3f3;
+}
+
+.home-page h1 {
+  font-size: 55px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home-page p {
+  font-size: 25px;
+  margin-bottom: 135px;
+  text-align: center;
+}
+
+.functional {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.column1, .column2, .column3 {
+  flex: 1;
+  text-align: center;
+  background-color: #d7d5d5;
+  height: 470px;
+}
+
+.column1 img, .column2 img, .column3 img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#pic3 {
+  height: 325px;
+}
+
+.functional .btn {
+  margin-top: 45px;
+}
+
+.functional button {
+  height: auto;
+  text-decoration: none;
+  padding: 7px;
+  cursor: pointer;
+  background-color: #0d235d;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  width: 80px;
+  margin-top: 20px;
+}
+
+.functional button:hover {
+  background: #213570;
+  color: white;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer .column {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex-direction: column;
+}
+
+.footer .footer-row {
+  flex: 1;
+  text-align: center;
+  flex-direction: row;
+}
+
+.footer h4{
+  margin-bottom: 20px;
+  color: #ffffff;
+  position: relative;
+}
+
+.footer h4::before{
+  content: '';
+  position: absolute;
+  left: 559px;
+  bottom: -5px;
+  background-color: #e91e63;
+  height: 2px;
+  box-sizing: border-box;
+  width: 85px;
+}
+
+.footer-row a {
+  color: #afadad;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.footer-row a:hover{
+  color: #ffffff;
+  padding-top: 8px;
+}
+
+.footer .social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.footer .social-links a {
+  margin-right: 10px;
+}
+
+.footer .social-links img {
+  width: 30px;
+  height: 30px;
+}
+
+
+
