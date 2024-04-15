@@ -23,7 +23,7 @@ export class CategoryComponent implements OnInit{
   newCategory: Category = {} as Category
   incomeCategories: Category [] = []
   expenseCategories: Category [] = []
-  selectedType: 'income' | 'expense' | 'all' = 'expense';
+  selectedType: 'income' | 'expense' | 'all' = 'all';
 
   defaultImage = 'https://cdn-icons-png.freepik.com/512/9748/9748127.png'
 
@@ -41,18 +41,19 @@ export class CategoryComponent implements OnInit{
 
   createCategory(): void {
     this.categoryService.createCategory(this.newCategory).subscribe(category => {
-      this.categories.push(category);
+      // this.categories.push(category);
+      this.categories.unshift(category);
       this.newCategory = {} as Category;
       this.filterCategoriesByType();
     });
   }
 
-  deleteCategory(id: number) {
-    this.categoryService.deleteCategory(id).subscribe(() => {
-      this.categories = this.categories.filter(category => category.id != id);
-      this.filterCategoriesByType();
-    })
-  }
+  // deleteCategory(id: number) {
+  //   this.categoryService.deleteCategory(id).subscribe(() => {
+  //     this.categories = this.categories.filter(category => category.id != id);
+  //     this.filterCategoriesByType();
+  //   })
+  // }
 
   filterCategoriesByType(): void {
     this.incomeCategories = this.categories.filter(categories => categories.type === 'income');

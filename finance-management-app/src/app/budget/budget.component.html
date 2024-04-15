@@ -1,1 +1,43 @@
 <app-top-bar></app-top-bar>
+
+<div class="budget-form">
+  <label for="budgetAmount">Budget Amount:</label>
+  <input type="number" id="budgetAmount" [(ngModel)]="budget.amount">
+  <label for="budgetPeriod">Budget Period:</label>
+  <select id="budgetPeriod" [(ngModel)]="budget.period">
+    <option value="daily">Daily</option>
+    <option value="weekly">Weekly</option>
+    <option value="monthly">Monthly</option>
+  </select>
+  <button (click)="setBudget()">Set Budget</button>
+</div>
+
+<div class="budget-summary">
+  <h2>Budget Summary</h2>
+  <p>Total Income: {{ totalIncome }}</p>
+  <p>Total Expense: {{ totalExpense }}</p>
+  <p>Remaining Amount: {{ remainingAmount }}</p>
+</div>
+
+<!--<div class="budget-container">-->
+<!--  <h2>Budget Summary</h2>-->
+<!--  <form (ngSubmit)="setBudget()" #budgetForm="ngForm">-->
+<!--    <div class="form-group">-->
+<!--      <label for="amount">Budget Amount:</label>-->
+<!--      <input type="number" id="amount" name="amount" [(ngModel)]="budget.amount" required>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label for="period">Budget Period:</label>-->
+<!--      <select id="period" name="period" [(ngModel)]="budget.period" required>-->
+<!--        <option value="daily">Daily</option>-->
+<!--        <option value="weekly">Weekly</option>-->
+<!--        <option value="monthly">Monthly</option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--    <button type="submit">Set Budget</button>-->
+<!--  </form>-->
+
+<!--  <p>Total Income: {{ totalIncome }}</p>-->
+<!--  <p>Total Expense: {{ totalExpense }}</p>-->
+<!--  <p>Remaining Amount: {{ remainingAmount }}</p>-->
+<!--</div>-->

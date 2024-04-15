@@ -1,11 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from "@angular/common";
-import { ActivatedRoute, RouterModule } from "@angular/router";
+import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 import { Category, Transaction } from "../models";
 import { CategoryService } from "../category.service";
 import { FormsModule } from "@angular/forms";
-import {TransactionService} from "../transaction.service";
-import {CategoryComponent} from "../category/category.component";
+import { TransactionService } from "../transaction.service";
 import {TopBarComponent} from "../top-bar/top-bar.component";
 
 @Component({
@@ -15,7 +14,6 @@ import {TopBarComponent} from "../top-bar/top-bar.component";
     RouterModule,
     FormsModule,
     CommonModule,
-    CategoryComponent,
     TopBarComponent
   ],
   templateUrl: './category-detail.component.html',
@@ -23,13 +21,14 @@ import {TopBarComponent} from "../top-bar/top-bar.component";
 })
 export class CategoryDetailComponent implements OnInit{
   category: Category = {} as Category;
-  updatedCategory: string = '';
   transactions: Transaction[] = [];
+  updatedCategory: string = '';
 
   constructor(
+    private route: ActivatedRoute,
     private categoryService: CategoryService,
     private transactionService: TransactionService,
-    private route: ActivatedRoute
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -44,17 +43,32 @@ export class CategoryDetailComponent implements OnInit{
     });
   }
 
-  updateTitle() {
-    this.categoryService.updateCategory(this.category.id, this.updatedCategory).subscribe((response) => {
-      this.category.name = response.name;
-      this.updatedCategory = "";
-    })
-  }
-
-
   getTransactionsForCategory(): void {
     this.transactionService.getTransactions().subscribe(transactions => {
       this.transactions = transactions.filter(transaction => transaction.category === this.category.name);
+    });
+  }
+
+  updateCategoryName(): void {
+    if (this.updatedCategory.trim() !== '') {
+      this.categoryService.updateCategory(this.category.id, this.updatedCategory.trim()).subscribe(updatedCategory => {
+        this.category.name = updatedCategory.name;
+        this.updatedCategory = '';
+      });
+    }
+  }
+
+  deleteCategory(): void {
+    if (confirm("Are you sure you want to delete this category?")) {
+      this.categoryService.deleteCategory(this.category.id).subscribe(() => {
+        this.router.navigate(['/categories']);
+      });
+    }
+  }
+
+  deleteTransaction(transactionId: number): void {
+    this.transactionService.deleteTransaction(transactionId).subscribe(() => {
+      this.transactions = this.transactions.filter(transaction => transaction.id !== transactionId);
     });
   }
 }

@@ -22,13 +22,10 @@ export class CategoryService {
     return this.http.post<Category>(`${this.URL}/categories`, category);
   }
 
-  // updateCategory(id: number, updatedCategory: string): Observable<Category> {
-  //   return this.http.put<Category>(`${this.URL}/categories/${id}`, updatedCategory);
-  // }
-
   updateCategory(id: number, updatedCategory: string): Observable<Category> {
-    return this.http.put<Category>(`${this.URL}/categories/${id}`, { name: updatedCategory });
+    return this.http.put<Category>(`${this.URL}/categories/${id}`, updatedCategory);
   }
+
   deleteCategory(id: number): Observable<Category> {
     return this.http.delete<Category>(`${this.URL}/categories/${id}`);
   }

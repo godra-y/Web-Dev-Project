@@ -2,14 +2,16 @@
 
 <div class="categories">
   <div class="category-form">
-    <label>Name:</label>
-    <input type="text" [(ngModel)]="newCategory.name">
-    <label>Type:</label>
+    <label><strong>Type:</strong></label>
     <select [(ngModel)]="newCategory.type">
       <option value="expense">Expense</option>
       <option value="income">Income</option>
     </select>
-    <button (click)="createCategory()">Create</button>
+
+    <label><strong>Name:</strong></label>
+    <input type="text" [(ngModel)]="newCategory.name">
+
+    <button (click)="createCategory()">Save</button>
   </div>
 
 
@@ -21,38 +23,44 @@
 
   <div class="category-container" *ngIf="selectedType === 'income'">
     <div *ngFor="let category of incomeCategories">
-      <a routerLink="/categories/{{category.id}}">
-        <a routerLink="/categories/{{category.id}}">
+      <div class="category-img">
+        <a routerLink="/categories/{{category.id}}/transactions">
           <img [src]="category.img ? category.img : defaultImage" alt="{{ category.name }}">
-          {{category.name}}
         </a>
+      </div>
+      <a routerLink="/categories/{{category.id}}/transactions" class="category-name">
+        <strong>{{category.name}}</strong>
       </a>
-      <button (click)="deleteCategory(category.id)">Delete</button>
+      <!--      <button (click)="deleteCategory(category.id)">Delete</button>-->
     </div>
   </div>
 
   <div class="category-container" *ngIf="selectedType === 'expense'">
     <div *ngFor="let category of expenseCategories">
-      <a routerLink="/categories/{{category.id}}">
-        <img [src]="category.img ? category.img : defaultImage" alt="{{ category.name }}">
-        {{category.name}}
+      <div class="category-img">
+        <a routerLink="/categories/{{category.id}}/transactions">
+          <img [src]="category.img ? category.img : defaultImage" alt="{{ category.name }}">
+        </a>
+      </div>
+      <a routerLink="/categories/{{category.id}}/transactions" class="category-name">
+        <strong>{{category.name}}</strong>
       </a>
-      <button (click)="deleteCategory(category.id)">Delete</button>
+      <!--      <button (click)="deleteCategory(category.id)">Delete</button>-->
+    </div>
+  </div>
+
+  <div class="category-container" *ngIf="selectedType === 'all'">
+    <div *ngFor="let category of categories">
+      <div class="category-img">
+        <a routerLink="/categories/{{category.id}}/transactions">
+          <img [src]="category.img ? category.img : defaultImage" alt="{{ category.name }}">
+        </a>
+      </div>
+      <a routerLink="/categories/{{category.id}}/transactions" class="category-name">
+        <strong>{{category.name}}</strong>
+      </a>
+      <!--      <button (click)="deleteCategory(category.id)">Delete</button>-->
     </div>
   </div>
 </div>
-
-<div class="category-container" *ngIf="selectedType === 'all'">
-  <div *ngFor="let category of categories">
-    <div>
-      <a routerLink="/categories/{{category.id}}">
-        <img [src]="category.img ? category.img : defaultImage" alt="{{ category.name }}">
-        {{category.name}}
-      </a>
-      <button (click)="deleteCategory(category.id)">Delete</button>
-    </div>
-  </div>
-</div>
-
-
 

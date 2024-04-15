@@ -10,14 +10,14 @@ import { AboutUsComponent } from "./about-us/about-us.component";
 
 
 export const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent, title: 'home'},
   {path: '', component: TopBarComponent, outlet: 'top bar'},
   {path: 'about-us', component: AboutUsComponent, title: 'about us'},
   {path: 'transactions', component: TransactionComponent, title: 'transactions'},
   {path: 'categories', component: CategoryComponent, title: 'categories'},
   {path: 'budget', component: BudgetComponent, title: 'budget'},
-  {path: 'categories/:id', component: CategoryDetailComponent, title: 'category detail'},
+  {path: 'categories/:id/transactions', component: CategoryDetailComponent, title: 'category detail'},
   {path: '**', component: NotFoundComponent, title: '404 Not Found'}
 ];
 

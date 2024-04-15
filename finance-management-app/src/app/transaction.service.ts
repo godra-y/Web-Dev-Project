@@ -32,3 +32,4 @@ export class TransactionService {
     return this.http.get<Category[]>(`${this.URL}/categories`)
   }
 }
+

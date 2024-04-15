@@ -1,26 +1,33 @@
 <app-top-bar></app-top-bar>
 
-<h1>Category detail</h1>
-<h2>{{category.name}}</h2>
+<div *ngIf="category" class="category-detail-container">
+  <div class="category-detail-form">
+    <img [src]="category.img" class="category-detail-image">
+    <label><h2>{{ category.name }}</h2></label>
+    <input type="text" [(ngModel)]="updatedCategory" placeholder="New name">
 
-<div class="page-func">
+    <button (click)="updateCategoryName()" class="update-category">Save</button>
 
-  <fieldset>
-    <input [(ngModel)]="updatedCategory" type="text"/>
-    <button (click)="updateTitle()" class="save-btn">Save</button>
-  </fieldset>
+    <div class="delete-category">
+      <button (click)="deleteCategory()">Delete Category</button>
+    </div>
+  </div>
+
+  <div class="category-transactions">
+    <table>
+      <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <td>{{ transaction.amount }} ₸</td>
+        <td>{{ transaction.date }}</td>
+        <button (click)="deleteTransaction(transaction.id)"><img src="https://static.vecteezy.com/system/resources/previews/021/352/964/non_2x/trash-icon-recycle-and-trash-sign-symbol-icon-free-png.png" width="20"></button>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-
-<div class="transactions-list">
-  <h3>Transactions for {{ category.name }}</h3>
-  <ul>
-    <li *ngFor="let transaction of transactions">
-      <p>Amount: {{ transaction.amount }}</p>
-      <p>Date: {{ transaction.date }}</p>
-      <hr>
-    </li>
-  </ul>
-</div>
-
-

@@ -12,3 +12,9 @@ export interface Transaction {
   date: string;
   type: 'income' | 'expense';
 }
+
+export interface Budget {
+  amount: number;
+  period: 'daily' | 'weekly' | 'monthly';
+}
+

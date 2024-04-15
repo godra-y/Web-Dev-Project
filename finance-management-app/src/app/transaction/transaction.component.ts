@@ -28,7 +28,7 @@ export class TransactionComponent implements OnInit {
   filteredCategories: Category[] = [];
   incomeTransactions: Transaction[] = [];
   expenseTransactions: Transaction[] = [];
-  selectedType: 'income' | 'expense' | 'all' = 'expense';
+  selectedType: 'income' | 'expense' | 'all' = 'all';
   constructor(private transactionService: TransactionService) {}
 
   ngOnInit(): void {
@@ -85,7 +85,7 @@ export class TransactionComponent implements OnInit {
   }
 
   showAllTransactions(): void {
-    this.selectedType = 'all'; // Обновляем выбранный тип на 'all'
-    this.getTransactions(); // Загружаем все транзакции
+    this.selectedType = 'all';
+    this.getTransactions();
   }
 }

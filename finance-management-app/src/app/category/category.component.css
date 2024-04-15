@@ -7,18 +7,20 @@
   margin-bottom: 30px;
 }
 
-form label {
+.category-form label {
   margin-right: 10px;
   margin-left: 50px;
 }
 
-form input, form select {
+.category-form input, select {
   margin-bottom: 20px;
   padding: 7px;
   width: 120px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-form button[type="submit"] {
+.category-form button {
   margin-left: 25px;
   padding: 10px 15px;
   cursor: pointer;
@@ -28,12 +30,12 @@ form button[type="submit"] {
   border-radius: 5px;
 }
 
-form button[type="submit"]:hover {
+.category-form button:hover {
   background-color: #213570;
 }
 
 .category-button button{
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   cursor: pointer;
   margin-right: 25px;
   padding: 10px 20px;
@@ -50,58 +52,66 @@ form button[type="submit"]:hover {
   color: white;
 }
 
-/*.category-container {*/
-/*  margin-bottom: 20px;*/
-/*}*/
-
 .category-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  background-color: #f6f6f6;
+  width: 70%;
+  border-radius: 30px;
 }
 
 .category-container > div {
   margin: 10px;
   text-align: center;
+  flex: 0 0 25%;
+  padding: 20px;
 }
 
 .category-container img {
-  width: 100px; /* настройте размер изображения по вашему усмотрению */
-  height: auto; /* сохраняет пропорции изображения */
-  margin-bottom: 5px;
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  padding-top: 40px;
 }
 
-.category-container button {
-  padding: 5px 10px;
-  cursor: pointer;
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
+.category-img {
+  display: block;
+  margin: 0 auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background-color: #eeeeee;
+  /*border: 4px solid #500088;*/
 }
 
-.category-container button:hover {
-  background-color: #c82333;
+.category-img:hover {
+  background-color: #e5e4e4;
 }
 
-.category-container div {
-  display: inline-block;
+.category-name {
+  display: block;
   text-align: center;
-  margin-right: 20px;
-}
-
-.category-container img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%; /* Делаем изображение круглым */
-  margin-bottom: 10px;
-}
-
-.category-container p {
-  margin: 0;
-}
-
-.category-container button {
   margin-top: 10px;
+  text-decoration: none;
+  color: #b65ab6;
+  font-size: 20px;
 }
+
+/*.category-container button {*/
+/*  padding: 5px 10px;*/
+/*  cursor: pointer;*/
+/*  background-color: #dc3545;*/
+/*  color: #fff;*/
+/*  border: none;*/
+/*  border-radius: 5px;*/
+/*}*/
+
+/*.category-container button:hover {*/
+/*  background-color: #c82333;*/
+/*}*/
+
