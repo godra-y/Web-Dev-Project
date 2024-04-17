@@ -48,7 +48,7 @@ export class BudgetComponent implements OnInit{
       .filter(transaction => transaction.type === 'expense')
       .reduce((acc, curr) => acc + curr.amount, 0);
 
-    this.remainingAmount = this.budget.amount - this.totalExpense;
+    this.remainingAmount = this.totalIncome - this.totalExpense;
   }
 
   setBudget(): void {
