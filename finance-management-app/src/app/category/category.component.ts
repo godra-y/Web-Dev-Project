@@ -48,13 +48,6 @@ export class CategoryComponent implements OnInit{
     });
   }
 
-  // deleteCategory(id: number) {
-  //   this.categoryService.deleteCategory(id).subscribe(() => {
-  //     this.categories = this.categories.filter(category => category.id != id);
-  //     this.filterCategoriesByType();
-  //   })
-  // }
-
   filterCategoriesByType(): void {
     this.incomeCategories = this.categories.filter(categories => categories.type === 'income');
     this.expenseCategories = this.categories.filter(categories => categories.type === 'expense');

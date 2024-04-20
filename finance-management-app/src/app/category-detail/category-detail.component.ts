@@ -49,14 +49,30 @@ export class CategoryDetailComponent implements OnInit{
     });
   }
 
+  // updateCategoryName(): void {
+  //   if (this.updatedCategory.trim() !== '') {
+  //     this.categoryService.updateCategory(this.category.id, this.updatedCategory.trim()).subscribe(updatedCategory => {
+  //       this.category.name = updatedCategory.name;
+  //       this.updatedCategory = '';
+  //     });
+  //   }
+  // }
+
   updateCategoryName(): void {
     if (this.updatedCategory.trim() !== '') {
-      this.categoryService.updateCategory(this.category.id, this.updatedCategory.trim()).subscribe(updatedCategory => {
-        this.category.name = updatedCategory.name;
+      // Создаем объект Category с обновленным именем
+      const updatedCategory: Category = { id: this.category.id, name: this.updatedCategory.trim(), type: this.category.type, img: this.category.img };
+
+      // Вызываем метод updateCategory с объектом Category
+      this.categoryService.updateCategory(this.category.id, updatedCategory).subscribe(() => {
+        // Обновляем имя категории после успешного обновления
+        this.category.name = this.updatedCategory.trim();
+        // Очищаем поле ввода
         this.updatedCategory = '';
       });
     }
   }
+
 
   deleteCategory(): void {
     if (confirm("Are you sure you want to delete this category?")) {
