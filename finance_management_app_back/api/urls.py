@@ -1,10 +1,10 @@
 from django.urls import path
-from api.views import (category_list, category_detail, transaction_list, transaction_detail)
+from api.views import (category_list, category_detail, TransactionListAPIView, TransactionDetailAPIView)
 
 urlpatterns = [
     path('categories/', category_list),
     path('categories/<int:pk>/', category_detail),
-    path('transactions/', transaction_list),
-    path('transactions/<int:pk>/', transaction_detail)
+    path('transactions/', TransactionListAPIView.as_view()),
+    path('transactions/<int:pk>/', TransactionDetailAPIView.as_view())
 
 ]
