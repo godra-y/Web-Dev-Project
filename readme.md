@@ -1,4 +1,4 @@
-# Finance Management Application
+# Financial Management Application
 
 ## Team members
 
