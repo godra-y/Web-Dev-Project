@@ -1,0 +1,88 @@
+.category-detail-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  /*align-items: center;*/
+}
+
+.category-detail-form {
+  display: flex;
+  align-items: center;
+}
+
+.category-detail-image {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+  margin-left: 30px;
+}
+
+.category-detail-container h2 {
+  font-size: 25px;
+  margin-bottom: 15px;
+  margin-right: 20px;
+}
+
+.category-detail-container input[type="text"] {
+  padding: 7px;
+  width: 180px;
+  height: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.update-category {
+  margin-left: 25px;
+  padding: 10px 15px;
+  cursor: pointer;
+  background-color: #0d235d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.update-category:hover {
+  background-color: #213570;
+}
+
+.delete-category button {
+  background-color: white;
+  color: #af0000;
+  border: none;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+.category-transactions {
+  display: flex;
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.category-detail-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.category-detail-container th, .category-detail-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  height: 40px;
+  font-size: 18px;
+}
+
+.category-detail-container th {
+  background-color: #f2f2f2;
+}
+
+.category-transactions button {
+  margin-left: 10px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}

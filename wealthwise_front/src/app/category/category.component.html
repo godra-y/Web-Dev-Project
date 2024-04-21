@@ -1,0 +1,62 @@
+<app-top-bar></app-top-bar>
+
+<div class="categories">
+  <div class="category-form">
+    <label><strong>Type:</strong></label>
+    <select [(ngModel)]="newCategory.type">
+      <option value="expense">Expense</option>
+      <option value="income">Income</option>
+    </select>
+
+    <label><strong>Name:</strong></label>
+    <input type="text" [(ngModel)]="newCategory.name">
+
+    <button (click)="createCategory()">Save</button>
+  </div>
+
+
+  <div class="category-button">
+    <button (click)="showAllCategories()">All</button>
+    <button (click)="selectedType = 'income'; filterCategoryBySelectedType()">Income</button>
+    <button (click)="selectedType = 'expense'; filterCategoryBySelectedType()" >Expense</button>
+  </div>
+
+  <div class="category-container" *ngIf="selectedType === 'income'">
+    <div *ngFor="let category of incomeCategories">
+      <div class="category-img">
+        <a routerLink="/categories/{{category.id}}/transactions">
+          <img [src]="category.img ? category.img : defaultImage" alt="{{ category.name }}">
+        </a>
+      </div>
+      <a routerLink="/categories/{{category.id}}/transactions" class="category-name">
+        <strong>{{category.name}}</strong>
+      </a>
+    </div>
+  </div>
+
+  <div class="category-container" *ngIf="selectedType === 'expense'">
+    <div *ngFor="let category of expenseCategories">
+      <div class="category-img">
+        <a routerLink="/categories/{{category.id}}/transactions">
+          <img [src]="category.img ? category.img : defaultImage" alt="{{ category.name }}">
+        </a>
+      </div>
+      <a routerLink="/categories/{{category.id}}/transactions" class="category-name">
+        <strong>{{category.name}}</strong>
+      </a>
+    </div>
+  </div>
+
+  <div class="category-container" *ngIf="selectedType === 'all'">
+    <div *ngFor="let category of categories">
+      <div class="category-img">
+        <a routerLink="/categories/{{category.id}}/transactions">
+          <img [src]="category.img ? category.img : defaultImage" alt="{{ category.name }}">
+        </a>
+      </div>
+      <a routerLink="/categories/{{category.id}}/transactions" class="category-name">
+        <strong>{{category.name}}</strong>
+      </a>
+    </div>
+  </div>
+</div>
