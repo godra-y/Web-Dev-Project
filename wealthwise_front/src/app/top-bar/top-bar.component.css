@@ -40,6 +40,11 @@
   text-decoration: underline;
 }
 
+#logout {
+  background-color: #333;
+  border: none;
+}
+
 .options button {
   background-color: #333;
   color: #8d8c8c;

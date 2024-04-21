@@ -1,4 +1,11 @@
 from django.db import models
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
 class Category(models.Model):
@@ -11,6 +18,12 @@ class Category(models.Model):
 
 
 class Transaction(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='categories',
+        null=True, blank=True
+    )
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     date = models.DateField()
@@ -18,7 +31,6 @@ class Transaction(models.Model):
 
     def __str__(self):
         return f"{self.category}: {self.amount}"
-
 
 # class Budget(models.Model):
 #     amount = models.DecimalField(max_digits=10, decimal_places=2)

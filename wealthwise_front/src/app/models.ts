@@ -17,3 +17,14 @@ export interface Budget {
   amount: number;
   period: 'daily' | 'weekly' | 'monthly';
 }
+
+export interface UserProfile {
+  id: number;
+  username: string;
+  email: string;
+}
+
+export interface Token {
+  access: string;
+  refresh: string;
+}

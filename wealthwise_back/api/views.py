@@ -1,10 +1,11 @@
 from rest_framework.decorators import api_view
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.views import APIView
 
-from .models import Category, Transaction
-from .serializers import CategorySerializer, TransactionSerializer
+from .models import Category, Transaction, User, UserProfile
+from .serializers import CategorySerializer, TransactionSerializer, UserSerializer, UserProfileSerializer
 
 
 @api_view(['GET', 'POST'])
@@ -95,4 +96,20 @@ class TransactionDetailAPIView(APIView):
         transaction = self.get_object(pk)
         transaction.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class UserSignUpAPIView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        profile_data = {'user': user.id}
+        profile_serializer = UserProfileSerializer(data=profile_data)
+        profile_serializer.is_valid(raise_exception=True)
+        profile_serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
