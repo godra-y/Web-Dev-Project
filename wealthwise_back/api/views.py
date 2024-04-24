@@ -58,18 +58,28 @@ def category_transactions(request, pk):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-class TransactionListAPIView(APIView):
-    def get(self, request):
-        transactions = Transaction.objects.all()
-        serializer = TransactionSerializer(transactions, many=True)
-        return Response(serializer.data)
+class TransactionListAPIView(generics.ListCreateAPIView):
+    serializer_class = TransactionSerializer
+    permission_classes = (IsAuthenticated,)
 
-    def post(self, request):
-        serializer = TransactionSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def get_queryset(self):
+        return Transaction.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+# class TransactionListAPIView(APIView):
+#     def get(self, request):
+#         transactions = Transaction.objects.all()
+#         serializer = TransactionSerializer(transactions, many=True)
+#         return Response(serializer.data)
+#
+#     def post(self, request):
+#         serializer = TransactionSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class TransactionDetailAPIView(APIView):
