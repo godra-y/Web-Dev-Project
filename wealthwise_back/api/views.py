@@ -122,4 +122,3 @@ class UserSignUpAPIView(generics.CreateAPIView):
         profile_serializer.is_valid(raise_exception=True)
         profile_serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-

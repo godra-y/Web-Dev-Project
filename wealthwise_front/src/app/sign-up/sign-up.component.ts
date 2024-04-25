@@ -14,18 +14,23 @@ export class SignUpComponent {
   username: string = "";
   email: string = "";
   password: string = "";
+  isSignIn: boolean = false;
 
   constructor(private router: Router, private authService: AuthService) {}
 
-  signup() {
-    this.authService.signup(this.username, this.email, this.password)
-      .subscribe(
-        (data) => {
-          this.router.navigate(['/login']);
-        },
-        (error) => {
-          alert('Registration failed. Please try again.');
-        }
-      );
+  toggleSignIn(isSignUpSelected: boolean): void {
+    this.isSignIn = isSignUpSelected;
+  }
+
+  signup(): void {
+    this.authService.signup(this.username, this.email, this.password).subscribe({
+      next: (user) => {
+        this.router.navigate(['/login']);
+        this.toggleSignIn(false);
+      },
+      error: (error) => {
+        alert('Registration failed. Please try again.');
+      }
+    });
   }
 }

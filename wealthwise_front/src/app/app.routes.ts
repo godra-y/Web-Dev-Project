@@ -22,7 +22,6 @@ export const routes: Routes = [
   {path: 'budget', component: BudgetComponent, title: 'budget'},
   {path: 'categories/:id/transactions', component: CategoryDetailComponent, title: 'category detail'},
   {path: 'login', component: AuthComponent, title: 'login'},
-  {path: 'signup', component:SignUpComponent, title: 'sign up'},
-  {path: 'signup', component:SignUpComponent, title: 'sign up'},
+  {path: 'signup', component: SignUpComponent, title: 'sign up'},
   {path: '**', component: NotFoundComponent, title: '404 Not Found'}
 ];
